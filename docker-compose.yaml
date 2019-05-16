@@ -16,6 +16,10 @@ services:
         db-con:
                 image: mysql:5.7
                 container_name: db-con
+                volumes:
+                        - type: volume
+                          source: mysql-data
+                          target: /var/lib/mysql
                 environment:
                         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASS} 
                         - MYSQL_DATABASE=taskmanager_app
@@ -27,7 +31,8 @@ services:
                 build: ./task-manager
                 depends_on:
                         - db-con
-
+volumes:
+        mysql-data:
 
 
 
