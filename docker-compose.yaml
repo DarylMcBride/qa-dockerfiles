@@ -1,7 +1,8 @@
 version: '3.7'
 services:
         nginx:
-                image: nginx:latest
+                image: nginx
+                build: ./nginx-conf
                 depends_on:
                         - node-con
                         - api-con
