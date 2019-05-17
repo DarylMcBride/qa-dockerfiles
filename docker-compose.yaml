@@ -25,10 +25,10 @@ services:
                         - MYSQL_DATABASE=taskmanager_app
         node-con:
                 image: node-img
-                build: ./taks-manager-front-end
+                build: ../taks-manager-front-end
         api-con:
                 image: api-img
-                build: ./task-manager
+                build: ../task-manager
                 depends_on:
                         - db-con
 volumes:
