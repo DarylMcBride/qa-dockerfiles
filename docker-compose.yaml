@@ -1,6 +1,7 @@
 version: '3.7'
 services:
         nginx:
+                image: nginx
                 build: ./nginx-conf
                 depends_on:
                         - node-con
@@ -17,14 +18,14 @@ services:
                           source: mysql-data
                           target: /var/lib/mysql
                 environment:
-                        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASS} 
-                        - MYSQL_DATABASE=taskmanager_app
+                        - MYSQL_ROOT_PASSWORD=password 
+                        - MYSQL_DATABASE=bank
         node-con:
                 image: node-img
-                build: ../taks-manager-front-end
+                build: ../bank-update-front
         api-con:
                 image: api-img
-                build: ../task-manager
+                build: ../bank-update-back
                 depends_on:
                         - db-con
 volumes:
